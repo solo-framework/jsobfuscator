@@ -1,56 +1,27 @@
-# obfuscator
-
-<!-- https://github.com/naicoi92/obfuscator.git -->
-
-A Go library for JavaScript obfuscation using V8 JavaScript Engine.
 
 ## Introduction
 
-jsobfuscator-go is a Go library that helps obfuscate JavaScript code by using JavaScript Obfuscator and V8 Engine.
-
-## Installation
-
-```bash
-go get github.com/naicoi92/obfuscator
-```
+This is a Go app that helps obfuscate JavaScript code by using JavaScript Obfuscator and V8 Engine.
 
 ## Requirements
 
 - Go 1.26.1 or later
-- v8go library (automatically installed when using `go get`)
+- v8go library
 
 ## Usage
 
-### Basic Example
-
-```go
-package main
-
-import (
-	"fmt"
-	"github.com/naicoi92/obfuscator"
-)
-
-func main() {
-	// Initialize the obfuscator
-	obf, err := obfuscator.NewObfuscator()
-	if err != nil {
-		panic(err)
-	}
-
-	// JavaScript code to obfuscate
-	jsCode := `function sayHello() { return "Hello World"; }`
-
-	// Perform obfuscation
-	obfuscatedCode, err := obf.Obfuscate(jsCode)
-	if err != nil {
-		panic(err)
-	}
-
-	// Print the obfuscated code
-	fmt.Println(obfuscatedCode)
-}
+### Build for linux
+```bash
+make build
 ```
+
+### Obfuscation
+
+```bash
+$jsobf -l medium < original.js > obfuscated.js
+```
+
+There are 3 levels of obfuscation: low, medium, high
 
 ### Important Notes
 

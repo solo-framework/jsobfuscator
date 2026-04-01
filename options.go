@@ -1,4 +1,4 @@
-package obfuscator
+package jsobfuscator
 
 type ObfuscationLevel string
 

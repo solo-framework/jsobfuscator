@@ -1,4 +1,4 @@
-package obfuscator
+package jsobfuscator
 
 import (
 	"testing"

@@ -1,6 +1,6 @@
 // Package obfuscator provides functionality to obfuscate JavaScript code
 // using JavaScript Obfuscator through v8go.
-package obfuscator
+package jsobfuscator
 
 import (
 	_ "embed"
