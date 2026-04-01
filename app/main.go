@@ -4,30 +4,31 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"jsobfuscator"
 	"os"
 	"strings"
-
-	"gitlab.com/naicoi92/obfuscator"
 )
 
 func main() {
 
-	level := flag.String("conlevelfig", "", "Level of obfuscation: low (default), medium, high")
+	level := flag.String("level", "", "Level of obfuscation: default, low, medium, high")
 	flag.Parse()
 
-	var oLevel obfuscator.ObfuscationLevel
+	var oLevel jsobfuscator.ObfuscationLevel
 
 	if *level != "" {
 		switch *level {
 		case "low":
-			oLevel = obfuscator.LowLevel
+			oLevel = jsobfuscator.LowLevel
 		case "medium":
-			oLevel = obfuscator.MediumLevel
+			oLevel = jsobfuscator.MediumLevel
 		case "high":
-			oLevel = obfuscator.HighLevel
+			oLevel = jsobfuscator.HighLevel
 		default:
-			oLevel = obfuscator.LowLevel
+			oLevel = jsobfuscator.DefaultLevel
 		}
+	} else {
+		flag.Usage()
 	}
 
 	// read from stdin
@@ -51,7 +52,7 @@ func main() {
 	}
 
 	// Initialize the obfuscator
-	obf, err := obfuscator.NewObfuscator()
+	obf, err := jsobfuscator.NewObfuscator()
 	if err != nil {
 		panic(err)
 	}
